@@ -1,12 +1,40 @@
+// protoc命令已加入环境变量
+// 编译命令  protoc --java_out=src/main/java/UNIT_8/learn/netty/sixthExample  src/protobuf/Student.proto
+
+
 syntax = "proto2";
 package com.learn.netty.protobuf;
 option optimize_for = SPEED;
-option java_package = "com.learn.netty.protobuf";
-option java_outer_classname = "DataInfo";
+option java_package = "";
+option java_outer_classname = "MyDataInfo";
 
-message Student {
-  required string name = 1;
+message MyMessage { // 定义最外层消息类型
+  enum DataType{ // 根据类型枚举区分不同的消息类型
+      PersonType = 1;
+      DogType = 2;
+      CatType = 3;
+  }
+  required DataType data_type = 1;
+
+  oneof dataBody { // 内存中只会存在一份消息类型的消息
+    Person person = 2;
+    Dog dog = 3;
+    Cat cat = 4;
+  }
+}
+
+message Person {
+  optional string name = 1;
   optional int32 age = 2;
   optional string address = 3;
+}
+
+message Dog {
+  optional string name = 1;
+  optional int32 age = 2;
+}
+message Cat {
+  optional string name = 1;
+  optional string city = 2;
 }
 
