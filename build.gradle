@@ -1,6 +1,36 @@
 plugins {
     id 'java'
 }
+//buildscript {
+//
+//    repositories {
+//        mavenCentral()
+//    }
+//    dependencies {
+//        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
+//    }
+//
+//}
+//apply plugin: 'java'
+
+//apply plugin: "com.google.protobuf"
+//
+//
+//protobuf {
+//    protoc {
+//        artifact = "com.google.protobuf:protoc:3.2.0"
+//    }
+//    plugins {
+//        grpc {
+//            artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
+//        }
+//    }
+//    generateProtoTasks {
+//        all()*.plugins {
+//            grpc{}
+//        }
+//    }
+//}
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -15,7 +45,11 @@ dependencies {
     implementation 'io.netty:netty-all:4.1.10.Final'
     implementation 'com.google.protobuf:protobuf-java:3.3.1'
     implementation 'com.google.protobuf:protobuf-java-util:3.3.1'
+//    implementation 'io.grpc:grpc-netty:1.4.0'
+//    implementation 'io.grpc:grpc-protobuf:1.4.0'
+//    implementation 'io.grpc:grpc-sub:1.4.0'
 }
+
 
 test {
     useJUnitPlatform()
