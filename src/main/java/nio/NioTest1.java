@@ -19,7 +19,7 @@ public class NioTest1 {
         System.out.println("c2:" + buffer.limit()); // 10
         while (buffer.hasRemaining()) {
             System.out.println("p2:" + buffer.position()); // 0
-             System.out.println("l:" + buffer.limit()); // 5
+            System.out.println("l:" + buffer.limit()); // 5
             System.out.println("c:" + buffer.capacity()); // 10
             System.out.println(buffer.get());
         }
