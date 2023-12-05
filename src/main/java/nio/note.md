@@ -11,12 +11,12 @@ Buffer:
 
 ServerSocketChannel和SocketChannel的区别:
 1. ServerSocketChannel:
-    ServerSocketChannel 是用于监听新进来的 TCP 连接的通道。
+    ServerSocketChannel 是用于监听新进来的 TCP 连接的通道, 并不具备数据传输的能力。
     在服务器端，通过 ServerSocketChannel 可以监听一个指定的端口，接受客户端的连接请求。
     通过 ServerSocketChannel 的 accept() 方法可以获取一个表示客户端连接的 SocketChannel。
     通常，服务器端会创建一个 ServerSocketChannel 对象，然后将其绑定到一个特定的端口，以等待客户端的连接请求。
 2. SocketChannel:
-    SocketChannel 是用于建立客户端到服务器端的 TCP 连接的通道。
+    SocketChannel 是用于建立客户端到服务器端的 TCP 连接的通道, 具备数据传输的能力。
     在客户端，通过 SocketChannel 可以连接到指定的服务器端，并进行数据的读写。
     通过 SocketChannel 提供的方法可以读取和写入数据，也可以设置通道的阻塞模式等。
     客户端通常通过 SocketChannel.open() 来创建一个新的 SocketChannel。
@@ -29,3 +29,16 @@ Selector 的主要作用：
 1.  事件监听： Selector 可以监听多个通道上的事件，如连接就绪、数据可读、数据可写等。
 2.  非阻塞 I/O： 通过 Selector，可以实现非阻塞的 I/O 操作。当一个通道注册到 Selector 上时，可以在单独的线程中等待事件的发生，而不需要通过阻塞的方式一直等待，提高了程序的效率。
 3.  单线程管理多通道： 使用 Selector 可以通过一个单独的线程管理多个通道，减少线程的创建和切换开销，提高系统的资源利用率。
+
+
+字符集：
+1.  ASCII: 美国信息交换标准代码, 7bit表示一个字符, 共计可以表示128(2^7)个字符
+2. ISO-8859-1: 8bit, 即1byte表示一个字符, 共计可以表示256个字符
+3. gb2312(简体中文): 两个字节表示一个汉字
+4. gbk：基于gb2312加入了许多生僻字
+5. gb18030：最完整的简体中文的字符集
+6. big5：台湾字符集, 繁体字
+7. unicode：全球字符集, 两个字节表示一个字符
+8. utf: Unicode Translation Format
+9.  utf-8:变长字节表示形式
+10. unicode是一种字符集, 而utf则是一种编码存储方式; utf-8是unicode的实现方式之一
